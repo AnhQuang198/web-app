@@ -1,59 +1,38 @@
 import React, { Component } from 'react';
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Input, Button } from 'antd';
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 
 class Login extends Component {
     render() {
         return (
-            <div>
-                <Form
-                    name="basic"
-                    initialValues={{
-                        remember: true,
-                    }}
-                    autoComplete="off"
-                >
-                    <Form.Item
-                        label="Username"
-                        name="username"
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Please input your username!',
-                            },
-                        ]}
-                    >
-                        <Input />
-                    </Form.Item>
+            <div className='form-login-register'>
+                <div className='border-form'>
+                    <h1 className='box-title-h1'>Welcome Back</h1>
+                    <Input className='input-form' size="large" placeholder="Email address" prefix={<UserOutlined />} />
 
-                    <Form.Item
-                        label="Password"
-                        name="password"
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Please input your password!',
-                            },
-                        ]}
-                    >
-                        <Input.Password />
-                    </Form.Item>
+                    <Input.Password className='input-form' size="large" placeholder="Password" prefix={<LockOutlined />} />
 
-                    <Form.Item
-                        name="remember"
-                        valuePropName="checked"
-                    >
-                        <Checkbox>Remember me</Checkbox>
-                    </Form.Item>
+                    <h4 className='forgot-pass-text'><Link to="/forgot-password">Forgot password?</Link></h4>
 
-                    <Form.Item>
-                        <Button type="primary" htmlType="submit">
-                            Login
-                        </Button>
-                        <Button type="primary" htmlType="submit">
-                            Register
-                        </Button>
-                    </Form.Item>
-                </Form>
+                    <Button className='btn-form'>
+                        Log In
+                    </Button>
+
+                    <div className='social-login'>
+                        {/* <a className='social-button' href='#'>
+                            <img className='social-img' alt="google" src="https://www.qries.com/images/banner_logo.png" />
+                        </a>
+                        <a className='social-button' href='#'>
+                            <img className='social-img' alt="facebook" src="https://www.qries.com/images/banner_logo.png" />
+                        </a>
+                        <a className='social-button' href='#'>
+                            <img className='social-img' alt="github" src="https://www.qries.com/images/banner_logo.png" />
+                        </a> */}
+                    </div>
+
+                    <h4 className='sign-up-text'>Don't have an account yet? <Link to="/register">Sign up</Link></h4>
+                </div>
             </div>
         );
     }

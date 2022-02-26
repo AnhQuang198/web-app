@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Result, Button } from 'antd';
+import { Link } from 'react-router-dom';
 
 class Error500 extends Component {
     render() {
@@ -8,7 +9,7 @@ class Error500 extends Component {
                 status="500"
                 title="500"
                 subTitle="Sorry, something went wrong."
-                extra={<Button type="primary">Back Home</Button>}
+                extra={<Button type="primary"><Link to="/home">Back Home</Link></Button>}
             />
         );
     }
