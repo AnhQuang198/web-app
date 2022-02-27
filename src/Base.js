@@ -1,14 +1,19 @@
-// export const SERVER_URL = "http://192.168.1.17:8888"; //local
-export const SERVER_URL = "https://authen-service-app.herokuapp.com"; //prod
+export const API_BASE_URL = "http://localhost:8088"; //local
+export const OAUTH2_REDIRECT_URI = 'http://localhost:3000/oauth2/redirect'
+
+//social login url
+export const GOOGLE_AUTH_URL = API_BASE_URL + '/oauth2/authorize/google?redirect_uri=' + OAUTH2_REDIRECT_URI;
+export const FACEBOOK_AUTH_URL = API_BASE_URL + '/oauth2/authorize/facebook?redirect_uri=' + OAUTH2_REDIRECT_URI;
+export const GITHUB_AUTH_URL = API_BASE_URL + '/oauth2/authorize/github?redirect_uri=' + OAUTH2_REDIRECT_URI;
 
 const axios = require('axios');
 const TOKEN_KEY = 'token';
-const REFRESH_TOKEN_KEY = 'refresh';
+const REFRESH_TOKEN_KEY = 'refresh_token';
 
 export async function nonAuthorizedPOST(url, data) {
   return await axios({
     method: "POST",
-    url: SERVER_URL + url,
+    url: API_BASE_URL + url,
     headers: {
       Accept: "*/*",
       "Content-Type": "application/json"
@@ -25,7 +30,7 @@ export async function authorizedGET(url) {
   let token = localStorage.getItem(TOKEN_KEY);
   return await axios({
     method: "GET",
-    url: SERVER_URL + url,
+    url: API_BASE_URL + url,
     headers: {
       Accept: "*/*",
       "Content-Type": "application/json",
@@ -46,6 +51,7 @@ export async function saveTokenAuth(token, refreshToken) {
 
 export function isLogout() {
   localStorage.removeItem(TOKEN_KEY);
+  localStorage.removeItem(REFRESH_TOKEN_KEY);
 }
 
 export const isLogin = () => {

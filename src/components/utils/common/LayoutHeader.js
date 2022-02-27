@@ -1,12 +1,42 @@
 import React, { Component } from 'react';
-import { Layout } from 'antd';
+import { Layout, Avatar, Popover, Button } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
+import { isLogout } from '../../../Base';
+import { Link } from 'react-router-dom';
 const { Header } = Layout;
-
 class LayoutHeader extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+        this.logout = this.logout.bind(this);
+    }
+
+    logout() {
+        isLogout();
+    }
+
     render() {
         return (
             <Header className="header">
                 <div className="logo" />
+                <Popover placement="bottomRight" title={
+                    <div>
+                        <span>Signed in as</span>
+                        <br />
+                        <span>leequang198@gmail.com</span>
+                    </div>
+                } content={
+                    <div>
+                        <Button style={{ width: '100%', marginBottom: '10px' }}>
+                            <Link to="/profile">Your profile</Link>
+                        </Button>
+                        <Button style={{ width: '100%' }} onClick={this.logout}>
+                            <Link to="/home">Sign out</Link>
+                        </Button>
+                    </div>
+                }>
+                    <Avatar size={40} icon={<UserOutlined />} />
+                </Popover>
             </Header>
         );
     }

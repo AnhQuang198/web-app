@@ -1,18 +1,5 @@
 @import "~antd/dist/antd.css";
 
-#components-layout-demo-top-side-2 .logo {
-    float: left;
-    width: 120px;
-    height: 31px;
-    margin: 16px 24px 16px 0;
-    background: rgba(255, 255, 255, 0.3);
-}
-
-.ant-row-rtl #components-layout-demo-top-side-2 .logo {
-    float: right;
-    margin: 16px 0 16px 24px;
-}
-
 .site-layout-background {
     background: #fff;
 }
@@ -116,4 +103,17 @@
 .text-login-with > span {
     font-weight: 500;
     margin: 0px 8px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 40px;
+}
+
+.logo {
+    width: 130px;
+    height: 50%;
+    background: #d1d1d1;
 }

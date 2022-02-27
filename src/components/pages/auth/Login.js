@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Input, Button } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
+import { GOOGLE_AUTH_URL, FACEBOOK_AUTH_URL, GITHUB_AUTH_URL } from '../../../Base'
 
 class Login extends Component {
     render() {
@@ -20,16 +21,16 @@ class Login extends Component {
                     </Button>
 
                     <div className='text-login-with'>
-                        <hr/>
+                        <hr />
                         <span>Login with</span>
-                        <hr/>
+                        <hr />
                     </div>
 
                     <div className='social-login'>
                         <ul>
-                            <Button className='social-button'>Facebook</Button>
-                            <Button className='social-button'>Google</Button>
-                            <Button className='social-button'>Github</Button>
+                            <Button className='social-button'><a href={FACEBOOK_AUTH_URL}>Facebook</a></Button>
+                            <Button className='social-button'><a href={GOOGLE_AUTH_URL}>Google</a></Button>
+                            <Button className='social-button'><a href={GITHUB_AUTH_URL}>Github</a></Button>
                         </ul>
                     </div>
 
