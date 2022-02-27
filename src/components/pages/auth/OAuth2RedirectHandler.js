@@ -6,8 +6,6 @@ class OAuth2RedirectHandler extends Component {
     getUrlParameter(name) {
         let currentUrl = window.location.href;
         let tokenIndex = currentUrl.indexOf('=')
-        console.log(currentUrl);
-        console.log(tokenIndex);
         return currentUrl.slice(tokenIndex + 1);
     };
 
@@ -15,7 +13,6 @@ class OAuth2RedirectHandler extends Component {
         const token = this.getUrlParameter('token');
         const error = this.getUrlParameter('error');
         const refreshToken = '';
-        console.log(token)
 
         if (token) {
             saveTokenAuth(token, refreshToken)

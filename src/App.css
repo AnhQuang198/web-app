@@ -33,6 +33,10 @@
     margin: 10px 0px;
 }
 
+.input-form-update {
+    margin: 10px 0px;
+}
+
 .border-form {
     width: 30%;
     padding: 40px 40px 10px 40px;
@@ -116,4 +120,40 @@
     width: 130px;
     height: 50%;
     background: #d1d1d1;
+}
+
+.user-infor > h1 {
+    font-size: 16px;
+}
+
+.user-infor-tab {
+    display: flex;
+    flex-direction: row;
+}
+
+.user-infor-avatar {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 0px 0px 0px;
+}
+
+.user-infor-form {
+    width: 70%;
+}
+
+.ant-image-mask {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+.input-update-form {
+    margin-top: 10px;
+}
+
+.button-update-form {
+    margin-top: 40px;
+    width: 145px;
 }

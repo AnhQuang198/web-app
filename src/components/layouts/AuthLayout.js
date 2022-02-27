@@ -18,7 +18,7 @@ class AuthLayout extends Component {
                     <LayoutHeader />
                     <Layout>
                         <Sidebar />
-                        <Layout style={{ height: '90vh' }}>
+                        <Layout style={{ height: 'auto' }}>
                             <LayoutBreadcrumb />
                             <Content style={{ margin: '0px 16px 0' }}>
                                 <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>

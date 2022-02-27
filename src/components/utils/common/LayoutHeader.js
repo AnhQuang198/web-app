@@ -8,17 +8,17 @@ class LayoutHeader extends Component {
     constructor(props) {
         super(props);
         this.state = {};
-        this.logout = this.logout.bind(this);
     }
 
-    logout() {
+    logout = () => {
         isLogout();
     }
 
     render() {
         return (
             <Header className="header">
-                <div className="logo" />
+                <div className="logo">
+                </div>
                 <Popover placement="bottomRight" title={
                     <div>
                         <span>Signed in as</span>
@@ -31,7 +31,7 @@ class LayoutHeader extends Component {
                             <Link to="/profile">Your profile</Link>
                         </Button>
                         <Button style={{ width: '100%' }} onClick={this.logout}>
-                            <Link to="/home">Sign out</Link>
+                            Sign out
                         </Button>
                     </div>
                 }>
