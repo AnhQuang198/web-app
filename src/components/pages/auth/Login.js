@@ -19,20 +19,22 @@ class Login extends Component {
                         Log In
                     </Button>
 
-                    <div className='social-login'>
-                        {/* <a className='social-button' href='#'>
-                            <img className='social-img' alt="google" src="https://www.qries.com/images/banner_logo.png" />
-                        </a>
-                        <a className='social-button' href='#'>
-                            <img className='social-img' alt="facebook" src="https://www.qries.com/images/banner_logo.png" />
-                        </a>
-                        <a className='social-button' href='#'>
-                            <img className='social-img' alt="github" src="https://www.qries.com/images/banner_logo.png" />
-                        </a> */}
+                    <div className='text-login-with'>
+                        <hr/>
+                        <span>Login with</span>
+                        <hr/>
                     </div>
 
-                    <h4 className='sign-up-text'>Don't have an account yet? <Link to="/register">Sign up</Link></h4>
+                    <div className='social-login'>
+                        <ul>
+                            <Button className='social-button'>Facebook</Button>
+                            <Button className='social-button'>Google</Button>
+                            <Button className='social-button'>Github</Button>
+                        </ul>
+                    </div>
+
                 </div>
+                <h4 className='sign-up-text'>Don't have an account yet? <Link to="/register">Sign up</Link></h4>
             </div>
         );
     }

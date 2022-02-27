@@ -17,12 +17,12 @@ class Register extends Component {
 
                     <Input.Password className='input-form' size="large" placeholder="Confirm Password" prefix={<LockOutlined />} />
 
-                    <Button className='btn-form' style={{margin: '20px 0px 60px 0px'}}>
+                    <Button className='btn-form' style={{margin: '20px 0px 50px 0px'}}>
                         Create Account
                     </Button>
 
-                    <h4 className='sign-up-text'>Already a member? <Link to="/login">Log In</Link></h4>
                 </div>
+                <h4 className='sign-up-text'>Already a member? <Link to="/login">Log In</Link></h4>
             </div>
         );
     }
