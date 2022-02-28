@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { Breadcrumb } from 'antd';
 
-class Breadcrumb extends Component {
+class LayoutBreadcrumb extends Component {
     render() {
         return (
-            <Breadcrumb style={{ margin: '16px 0' }}>
+            <Breadcrumb style={{ margin: '15px 30px' }}>
                 <Breadcrumb.Item>Home</Breadcrumb.Item>
                 <Breadcrumb.Item>List</Breadcrumb.Item>
                 <Breadcrumb.Item>App</Breadcrumb.Item>
@@ -12,4 +13,4 @@ class Breadcrumb extends Component {
     }
 }
 
-export default Breadcrumb;
+export default LayoutBreadcrumb;

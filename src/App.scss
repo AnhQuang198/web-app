@@ -1,0 +1,161 @@
+@import "~antd/dist/antd.css";
+
+.site-layout-background {
+    background: #fff;
+}
+
+.form-login-register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 95vh;
+}
+
+.btn-form {
+    color: #fff;
+    background-color: #007bfc;
+    margin: 10px 0px;
+    width: 100%;
+    height: 45px;
+    font-size: 16px;
+
+    &:hover {
+        cursor: pointer;
+        color: #fff;
+        background: #35a0e7;
+    }
+}
+
+.input-form {
+    height: 45px;
+    margin: 10px 0px;
+}
+
+.input-form-update {
+    margin: 10px 0px;
+}
+
+.border-form {
+    width: 30%;
+    padding: 40px 40px 10px 40px;
+    border-radius: 4px;
+    border: 1px solid #ebeef5;
+    background-color: #fff;
+    overflow: hidden;
+    color: #303133;
+    transition: 0.3s;
+    box-shadow: 1px 2px 2px 1px #f3f3f3;
+}
+
+.box-title-h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 40px;
+    margin-bottom: 40px;
+}
+
+.forgot-pass-text {
+    margin: 10px 0px 10px 0px;
+    font-weight: 400;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.sign-up-text {
+    display: flex;
+    justify-content: center;
+    font-weight: 400;
+    margin-top: 15px;
+}
+
+.social-login {
+    margin: 15px 0px 10px 0px;
+
+    > ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0px;
+    }
+}
+
+.social-button {
+    background-color: #fff;
+    border: 1px solid #dcdfe6;
+    width: 31%;
+}
+
+.text-login-with {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+
+    > {
+        hr {
+            flex: 1 1 auto;
+            margin: 0px;
+            border-top: 0.5px solid rgb(230, 230, 230);
+        }
+
+        span {
+            font-weight: 500;
+            margin: 0px 8px;
+        }
+    }
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 40px;
+}
+
+.logo {
+    width: 130px;
+    height: 50%;
+    background: #d1d1d1;
+}
+
+.user-infor > h1 {
+    font-size: 16px;
+}
+
+.user-infor-tab {
+    display: flex;
+    flex-direction: row;
+}
+
+.user-infor-avatar {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px 0px 0px 0px;
+}
+
+.user-infor-form {
+    width: 70%;
+}
+
+.ant-image-mask {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+.input-update-form {
+    margin-top: 10px;
+}
+
+.button-update-form {
+    margin-top: 40px;
+    width: 145px;
+}

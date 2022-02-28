@@ -1,11 +1,33 @@
-import './App.css';
-import Error403 from './components/utils/error/Error403';
+import React from 'react';
+import './App.scss';
+import { Switch, BrowserRouter as Router, Redirect } from "react-router-dom";
+import { authRoutes, publicRoutes } from "./components/routes/Route";
+import AuthenRoute from './components/routes/AuthenRoute';
+import PublicRoute from './components/routes/PublicRoute';
 
 function App() {
   return (
-    <div className="App">
-      <Error403/>
-    </div>
+    <Router>
+      <Switch>
+        {publicRoutes.map((route, idx) => (
+          <PublicRoute
+            path={route.path}
+            component={route.component}
+            key={idx}
+            exact
+          />
+        ))}
+        {authRoutes.map((route, idx) => (
+          <AuthenRoute
+            path={route.path}
+            component={route.component}
+            key={idx}
+            exact
+          />
+        ))}
+        <Redirect to="/page-404" />
+      </Switch>
+    </Router>
   );
 }
 
