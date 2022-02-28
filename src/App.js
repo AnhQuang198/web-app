@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import { Switch, BrowserRouter as Router, Redirect } from "react-router-dom";
 import { authRoutes, publicRoutes } from "./components/routes/Route";
 import AuthenRoute from './components/routes/AuthenRoute';

@@ -36,8 +36,8 @@ class Profile extends Component {
                         </div>
                         <div className='input-update-form'>
                             <span style={{ display: 'block', marginBottom: '10px' }}>Gender</span>
-                            <Radio.Group>
-                                <Radio defaultChecked={true} value={1}>Male</Radio>
+                            <Radio.Group defaultValue={1}>
+                                <Radio value={1}>Male</Radio>
                                 <Radio value={2}>Female</Radio>
                             </Radio.Group>
                         </div>
