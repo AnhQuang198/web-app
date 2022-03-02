@@ -34,7 +34,6 @@ export async function authorizedGET(url) {
     headers: {
       Accept: "*/*",
       "Content-Type": "application/json",
-      "x-user-id": 6,
       "x-auth-token": token
     }
   }).catch(e => {

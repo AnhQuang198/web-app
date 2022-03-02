@@ -7,7 +7,8 @@ class LayoutHeader extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: ''
+            email: '',
+            avatarUrl: ''
         };
     }
 
@@ -21,7 +22,8 @@ class LayoutHeader extends Component {
             const result = await authorizedGET(reqUrl);
             if (result.status === 200) {
                 let email = result.data.email;
-                this.setState({email: email});
+                let avatarUrl = result.data.avatarUrl;
+                this.setState({email: email, avatarUrl: avatarUrl});
             }
         } catch (e) {
             console.log(e);
@@ -53,7 +55,7 @@ class LayoutHeader extends Component {
                         </Button>
                     </div>
                 }>
-                    <Avatar size={40} src="https://gamek.mediacdn.vn/133514250583805952/2020/6/11/photo-1-1591863439028259696906.jpeg" />
+                    <Avatar size={40} src={this.state.avatarUrl} />
                 </Popover>
             </Header>
         );
