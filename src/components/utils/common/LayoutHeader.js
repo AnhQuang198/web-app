@@ -18,7 +18,7 @@ class LayoutHeader extends Component {
 
     loadUser = async () => {
         try {
-            const reqUrl = "/v1/user/me";
+            const reqUrl = "/v1/users/me";
             const result = await authorizedGET(reqUrl);
             if (result.status === 200) {
                 let email = result.data.email;
