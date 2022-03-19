@@ -25,8 +25,8 @@ node {
                         cd home
                         cd client
                         cd dev
+                        docker-compose up -d
                     '''
-                    sh "docker-compose up -d"
                 }
                 break
             case 'master':
@@ -37,8 +37,8 @@ node {
                             cd home
                             cd client
                             cd prod
+                            docker-compose up -d
                         '''
-                        sh "docker-compose up -d"
                     }
                 }
                 break
