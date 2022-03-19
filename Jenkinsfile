@@ -25,7 +25,9 @@ node {
                         cd home
                         cd client
                         cd dev
+                        ls
                         docker-compose up -d
+                        pwd
                     '''
                 }
                 break
