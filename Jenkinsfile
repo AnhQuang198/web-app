@@ -25,7 +25,7 @@ node {
                         cd home
                         cd client
                         cd dev
-                        ./run.sh
+                        sh run.sh
                     '''
                 }
                 break
