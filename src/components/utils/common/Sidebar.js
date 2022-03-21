@@ -14,17 +14,17 @@ class Sidebar extends Component {
                     defaultOpenKeys={['sub1']}
                     style={{ height: '100%', borderRight: 0 }}
                 >
-                    <SubMenu key="sub1" title="subnav 1">
+                    <SubMenu key="sub1" title="Other">
                         <Menu.Item key="1"><Link to="/home">Home</Link></Menu.Item>
-                        <Menu.Item key="2">option2</Menu.Item>
-                        <Menu.Item key="3">option3</Menu.Item>
-                        <Menu.Item key="4">option4</Menu.Item>
+                        <Menu.Item key="2">Setting</Menu.Item>
+                        <Menu.Item key="3">Image</Menu.Item>
+                        <Menu.Item key="4">Other</Menu.Item>
                     </SubMenu>
-                    <SubMenu key="sub2" title="subnav 2">
-                        <Menu.Item key="5">option5</Menu.Item>
-                        <Menu.Item key="6">option6</Menu.Item>
-                        <Menu.Item key="7">option7</Menu.Item>
-                        <Menu.Item key="8">option8</Menu.Item>
+                    <SubMenu key="sub2" title="Shop">
+                        <Menu.Item key="5">Shop Address</Menu.Item>
+                        <Menu.Item key="6">Order</Menu.Item>
+                        <Menu.Item key="7">Rating</Menu.Item>
+                        <Menu.Item key="8">Product</Menu.Item>
                     </SubMenu>
                     <SubMenu key="sub3" title="Admin">
                         <Menu.Item key="9">Shop</Menu.Item>
