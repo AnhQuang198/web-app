@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
 import { Layout, Avatar, Popover, Button } from 'antd';
-import { isLogout, authorizedGET } from '../../../Base';
+import { isLogout, authorizedGET, globalConfig } from '../../../Base';
 import { Link } from 'react-router-dom';
 const { Header } = Layout;
 class LayoutHeader extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: '',
-            avatarUrl: ''
+            email: globalConfig.userData.email,
+            avatarUrl: globalConfig.userData.avatarUrl
         };
     }
 
     componentDidMount() {
-        this.loadUser();
+        if (globalConfig.userData.isLoadData) {
+            this.loadUser();
+        }
     }
 
     loadUser = async () => {
@@ -23,6 +25,9 @@ class LayoutHeader extends Component {
             if (result.status === 200) {
                 let email = result.data.email;
                 let avatarUrl = result.data.avatarUrl;
+                globalConfig.userData.isLoadData = false;
+                globalConfig.userData.avatarUrl = avatarUrl;
+                globalConfig.userData.email = email;
                 this.setState({email: email, avatarUrl: avatarUrl});
             }
         } catch (e) {
