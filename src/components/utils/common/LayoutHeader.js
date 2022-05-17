@@ -1,27 +1,34 @@
 import React, { Component } from 'react';
 import { Layout, Avatar, Popover, Button } from 'antd';
-import { isLogout, authorizedGET } from '../../../Base';
+import { isLogout, authorizedGET, globalConfig } from '../../../Base';
 import { Link } from 'react-router-dom';
 const { Header } = Layout;
 class LayoutHeader extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: ''
+            email: globalConfig.userData.email,
+            avatarUrl: globalConfig.userData.avatarUrl
         };
     }
 
     componentDidMount() {
-        this.loadUser();
+        if (globalConfig.userData.isLoadData) {
+            this.loadUser();
+        }
     }
 
     loadUser = async () => {
         try {
-            const reqUrl = "/v1/user/me";
+            const reqUrl = "/v1/users/me";
             const result = await authorizedGET(reqUrl);
             if (result.status === 200) {
                 let email = result.data.email;
-                this.setState({email: email});
+                let avatarUrl = result.data.avatarUrl;
+                globalConfig.userData.isLoadData = false;
+                globalConfig.userData.avatarUrl = avatarUrl;
+                globalConfig.userData.email = email;
+                this.setState({email: email, avatarUrl: avatarUrl});
             }
         } catch (e) {
             console.log(e);
@@ -30,6 +37,7 @@ class LayoutHeader extends Component {
 
     logout = async () => {
         isLogout();
+        window.location.href = '/home';
     }
 
     render() {
@@ -53,7 +61,7 @@ class LayoutHeader extends Component {
                         </Button>
                     </div>
                 }>
-                    <Avatar size={40} src="https://gamek.mediacdn.vn/133514250583805952/2020/6/11/photo-1-1591863439028259696906.jpeg" />
+                    <Avatar size={40} src={this.state.avatarUrl} />
                 </Popover>
             </Header>
         );

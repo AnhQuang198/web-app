@@ -1,5 +1,5 @@
-export const API_BASE_URL = "http://localhost:8088"; //local
-export const OAUTH2_REDIRECT_URI = 'http://localhost:3000/oauth2/redirect'
+export const API_BASE_URL = "http://127.0.0.1:8088"; //local
+export const OAUTH2_REDIRECT_URI = 'http://127.0.0.1:3000/oauth2/redirect'
 
 //social login url
 export const GOOGLE_AUTH_URL = API_BASE_URL + '/oauth2/authorize/google?redirect_uri=' + OAUTH2_REDIRECT_URI;
@@ -34,7 +34,6 @@ export async function authorizedGET(url) {
     headers: {
       Accept: "*/*",
       "Content-Type": "application/json",
-      "x-user-id": 6,
       "x-auth-token": token
     }
   }).catch(e => {
@@ -59,4 +58,15 @@ export const isLogin = () => {
       return true;
   }
   return false;
+}
+
+export const globalConfig = {
+  i18n: {
+
+  },
+  userData: {
+    isLoadData: true,
+    email: '',
+    avatarUrl: ''
+  }
 }

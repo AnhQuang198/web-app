@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import { Image, Upload, Button, Input, Radio, DatePicker } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 class Profile extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            avatarUrl: ''
+        }
+    }
+
     render() {
         return (
             <div className='user-infor'>
@@ -11,7 +18,7 @@ class Profile extends Component {
                     <div className='user-infor-avatar'>
                         <Image
                             style={{ width: '150px', height: '150px', borderRadius: '50%', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
-                            src="https://gamek.mediacdn.vn/133514250583805952/2020/6/11/photo-1-1591863439028259696906.jpeg"
+                            src="https://img5.thuthuatphanmem.vn/uploads/2021/11/12/hinh-anh-anime-don-gian-hinh-nen-anime-don-gian-ma-dep_092443354.png"
                         />
                         <Upload>
                             <Button style={{ marginTop: '20px' }} icon={<UploadOutlined />}>Upload</Button>

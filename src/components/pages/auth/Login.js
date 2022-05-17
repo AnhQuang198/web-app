@@ -51,7 +51,6 @@ class Login extends Component {
         }
     }
 
-
     render() {
         return (
             <div className='form-login-register'>
