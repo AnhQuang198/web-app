@@ -37,6 +37,7 @@ class LayoutHeader extends Component {
 
     logout = async () => {
         isLogout();
+        window.location.href = '/home';
     }
 
     render() {

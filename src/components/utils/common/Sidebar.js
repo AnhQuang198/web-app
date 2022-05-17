@@ -21,10 +21,10 @@ class Sidebar extends Component {
                         <Menu.Item key="4">Other</Menu.Item>
                     </SubMenu>
                     <SubMenu key="sub2" title="Shop">
-                        <Menu.Item key="5">Shop Address</Menu.Item>
-                        <Menu.Item key="6">Order</Menu.Item>
-                        <Menu.Item key="7">Rating</Menu.Item>
-                        <Menu.Item key="8">Product</Menu.Item>
+                        <Menu.Item key="5"> <Link to="/shop/profile">Shop Infomation</Link></Menu.Item>
+                        <Menu.Item key="6">Shop Address</Menu.Item>
+                        <Menu.Item key="7">Order</Menu.Item>
+                        <Menu.Item key="8">Rating</Menu.Item>
                     </SubMenu>
                     <SubMenu key="sub3" title="Admin">
                         <Menu.Item key="9">Shop</Menu.Item>

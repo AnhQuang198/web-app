@@ -6,10 +6,12 @@ import Register from "../pages/auth/Register";
 import ForgotPassword from "../pages/auth/ForgotPassword";
 import OAuth2RedirectHandler from "../pages/auth/OAuth2RedirectHandler";
 import Profile from "../pages/user/Profile";
+import ShopProfile from "../pages/shop/ShopProfile";
 
 const authRoutes = [
     { path: "/home" , component: Home},
-    { path: "/profile" , component: Profile}
+    { path: "/profile" , component: Profile},
+    { path: "/shop/profile" , component: ShopProfile}
 ];
 
 const publicRoutes = [
