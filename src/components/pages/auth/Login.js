@@ -35,7 +35,7 @@ class Login extends Component {
             const reqUrl = "/v1/auth/login";
             const result = await nonAuthorizedPOST(reqUrl, data);
             if (result.status === 200) {
-                saveTokenAuth(result.data.token, result.data.refresh_token);
+                saveTokenAuth(result.data.token, result.data.refreshToken);
                 this.setState({ isLoading: false })
                 // redirect to path when login success
                 this.props.history.push("/home");

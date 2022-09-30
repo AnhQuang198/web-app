@@ -30,8 +30,11 @@ class LayoutHeader extends Component {
                 globalConfig.userData.email = email;
                 this.setState({email: email, avatarUrl: avatarUrl});
             }
+           
+                console.log("AAAA" + result.data.data)
+          
         } catch (e) {
-            console.log(e);
+            console.log('hh', e);
         }
     }
 

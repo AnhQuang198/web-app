@@ -3,32 +3,31 @@ import { Input, Button } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 
-class ForgotPassword extends Component {
+class VerifyOTP extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: ''
+            email: '',
+            otp: ''
         }
     }
 
-    handleChangeEmail = (event) => {
-        this.setState({ email: event.target.value });
+    handleChangeOTP = (event) => {
+        this.setState({ otp: event.target.value });
     }
 
     render() {
         return (
             <div className='form-login-register'>
                 <div className='border-form'>
-                    <h1 className='box-title-h1'>Forgot Password</h1>
+                    <h1 className='box-title-h1'>Verify OTP</h1>
                     <Input className='input-form' size="large" 
-                        placeholder="Email address" prefix={<UserOutlined />} 
-                        value={this.state.email} onChange={this.handleChangeEmail}
+                        placeholder="OTP" prefix={<UserOutlined />} 
+                        value={this.state.otp} onChange={this.handleChangeOTP}
                     />
                     
                     <Button className='btn-form' style={{margin: '15px 0px 60px 0px'}}>
-                        <Link to="/verify-otp">
-                            Retrieve Password
-                        </Link>
+                        Reset Password
                     </Button>
 
                     <h4 className='sign-up-text'><Link to="/login">Back to login page</Link></h4>
@@ -38,4 +37,4 @@ class ForgotPassword extends Component {
     }
 }
 
-export default ForgotPassword;
+export default VerifyOTP;

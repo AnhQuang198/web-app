@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Image, Input} from "antd";
+import {Input} from "antd";
 
 class ShopProfile extends Component {
     render() {

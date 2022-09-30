@@ -28,7 +28,7 @@ export async function nonAuthorizedPOST(url, data) {
 
 export async function authorizedGET(url) {
   let token = localStorage.getItem(TOKEN_KEY);
-  return await axios({
+  await axios({
     method: "GET",
     url: API_BASE_URL + url,
     headers: {
@@ -37,7 +37,7 @@ export async function authorizedGET(url) {
       "x-auth-token": token
     }
   }).catch(e => {
-    if(e.response) {
+    if (e.response) {
       return e.response.data;
     }
   });
@@ -53,9 +53,13 @@ export function isLogout() {
   localStorage.removeItem(REFRESH_TOKEN_KEY);
 }
 
+export function accessTokenExpired() {
+  localStorage.removeItem(TOKEN_KEY);
+}
+
 export const isLogin = () => {
   if (localStorage.getItem(TOKEN_KEY)) {
-      return true;
+    return true;
   }
   return false;
 }
@@ -68,5 +72,30 @@ export const globalConfig = {
     isLoadData: true,
     email: '',
     avatarUrl: ''
+  }
+}
+
+export function getNewAccessToken(time) {
+  console.log("AAAAA")
+  setTimeout(callAPIRefreshToken, time);
+}
+
+async function callAPIRefreshToken() {
+  let refreshToken = localStorage.getItem(REFRESH_TOKEN_KEY);
+  let url = "/v1/auth/generate-token";
+  try {
+    const value = await axios({
+      method: "POST",
+      url: API_BASE_URL + url,
+      headers: {
+        Accept: "*/*",
+        "Content-Type": "application/json",
+        "x-refresh-token": refreshToken
+      }
+    });
+    console.log("Value" + value);
+
+  } catch (e) {
+    console.log(e);
   }
 }

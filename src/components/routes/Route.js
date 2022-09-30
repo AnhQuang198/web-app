@@ -7,6 +7,7 @@ import ForgotPassword from "../pages/auth/ForgotPassword";
 import OAuth2RedirectHandler from "../pages/auth/OAuth2RedirectHandler";
 import Profile from "../pages/user/Profile";
 import ShopProfile from "../pages/shop/ShopProfile";
+import VerifyOTP from "../pages/auth/VerifyOTP";
 
 const authRoutes = [
     { path: "/home" , component: Home},
@@ -19,6 +20,7 @@ const publicRoutes = [
     { path: "/register", component: Register },
     { path: "/oauth2/redirect", component: OAuth2RedirectHandler },
     { path: "/forgot-password", component: ForgotPassword },
+    { path: "/verify-otp", component: VerifyOTP },
     { path: "/page-404", component: Error404 },
     { path: "/page-500", component: Error500 }
 ];
