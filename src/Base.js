@@ -9,16 +9,22 @@ export const GITHUB_AUTH_URL = API_BASE_URL + '/oauth2/authorize/github?redirect
 const axios = require('axios');
 const TOKEN_KEY = 'token';
 const REFRESH_TOKEN_KEY = 'refresh_token';
+const USER_EXPIRE_TIME = 'user_expire_time';
+
+//global axios config
+axios.defaults.baseURL = API_BASE_URL;
 
 export async function nonAuthorizedPOST(url, data) {
   return await axios({
     method: "POST",
-    url: API_BASE_URL + url,
+    url: url,
     headers: {
       Accept: "*/*",
       "Content-Type": "application/json"
     },
     data: JSON.stringify(data)
+  }).then(response => {
+    return response
   }).catch(e => {
     if (e.response) {
       return e.response.data;
@@ -28,14 +34,16 @@ export async function nonAuthorizedPOST(url, data) {
 
 export async function authorizedGET(url) {
   let token = localStorage.getItem(TOKEN_KEY);
-  await axios({
+  return await axios({
     method: "GET",
-    url: API_BASE_URL + url,
+    url: url,
     headers: {
       Accept: "*/*",
       "Content-Type": "application/json",
       "x-auth-token": token
     }
+  }).then(response => {
+    return response;
   }).catch(e => {
     if (e.response) {
       return e.response.data;
@@ -51,6 +59,14 @@ export async function saveTokenAuth(token, refreshToken) {
 export function isLogout() {
   localStorage.removeItem(TOKEN_KEY);
   localStorage.removeItem(REFRESH_TOKEN_KEY);
+}
+
+export function setTimeExpire(time) {
+  localStorage.setItem(USER_EXPIRE_TIME, time);
+}
+
+export function getTimeExpire() {
+  return localStorage.getItem(USER_EXPIRE_TIME);
 }
 
 export function accessTokenExpired() {
@@ -75,27 +91,22 @@ export const globalConfig = {
   }
 }
 
-export function getNewAccessToken(time) {
-  console.log("AAAAA")
-  setTimeout(callAPIRefreshToken, time);
-}
-
-async function callAPIRefreshToken() {
+export async function callAPIRefreshToken() {
   let refreshToken = localStorage.getItem(REFRESH_TOKEN_KEY);
   let url = "/v1/auth/generate-token";
-  try {
-    const value = await axios({
-      method: "POST",
-      url: API_BASE_URL + url,
-      headers: {
-        Accept: "*/*",
-        "Content-Type": "application/json",
-        "x-refresh-token": refreshToken
-      }
-    });
-    console.log("Value" + value);
-
-  } catch (e) {
-    console.log(e);
-  }
+  return await axios({
+    method: "POST",
+    url: url,
+    headers: {
+      Accept: "*/*",
+      "Content-Type": "application/json",
+      "x-refresh-token": refreshToken
+    }
+  }).then(response => {
+    return response
+  }).catch(e => {
+    if (e.response) {
+      return e.response.data;
+    }
+  });
 }

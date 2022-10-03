@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Input, Button } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
-import { GOOGLE_AUTH_URL, FACEBOOK_AUTH_URL, GITHUB_AUTH_URL, nonAuthorizedPOST, saveTokenAuth } from '../../../Base'
+import { GOOGLE_AUTH_URL, FACEBOOK_AUTH_URL, GITHUB_AUTH_URL, nonAuthorizedPOST, saveTokenAuth, setTimeExpire } from '../../../Base'
 import Notification from '../../utils/common/Notification';
 
 class Login extends Component {
@@ -34,8 +34,10 @@ class Login extends Component {
             }
             const reqUrl = "/v1/auth/login";
             const result = await nonAuthorizedPOST(reqUrl, data);
+
             if (result.status === 200) {
                 saveTokenAuth(result.data.token, result.data.refreshToken);
+                setTimeExpire(result.data.expired);
                 this.setState({ isLoading: false })
                 // redirect to path when login success
                 this.props.history.push("/home");
