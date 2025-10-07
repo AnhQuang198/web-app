@@ -10,9 +10,10 @@ class OAuth2RedirectHandler extends Component {
     };
 
     render() {
-        const token = this.getUrlParameter('token');
-        const error = this.getUrlParameter('error');
-        const refreshToken = '';
+        const params = new URLSearchParams(window.location.search);
+        const token = params.get('access_token');
+        const error = params.get('error');
+        const refreshToken = params.get('refresh_token');
 
         if (token) {
             saveTokenAuth(token, refreshToken)

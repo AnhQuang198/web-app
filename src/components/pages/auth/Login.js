@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Input, Button } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
-import { GOOGLE_AUTH_URL, FACEBOOK_AUTH_URL, GITHUB_AUTH_URL, nonAuthorizedPOST, saveTokenAuth } from '../../../Base'
+import { GOOGLE_AUTH_URL, FACEBOOK_AUTH_URL, GITHUB_AUTH_URL, nonAuthorizedPOST, saveTokenAuth, nonAuthorizedGET } from '../../../Base'
 import Notification from '../../utils/common/Notification';
 
 class Login extends Component {
@@ -23,6 +23,16 @@ class Login extends Component {
 
     handleChangePassword = (event) => {
         this.setState({ password: event.target.value });
+    }
+
+    loginWithGoogle = async () => {
+        try {
+            const reqUrl = "/v1/auth/login/oauth2/google";
+            const result = await nonAuthorizedGET(reqUrl, {});
+            window.location.href = result.data.data;
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     login = async () => {
@@ -81,7 +91,7 @@ class Login extends Component {
                     <div className='social-login'>
                         <ul>
                             <Button className='social-button'><a href={FACEBOOK_AUTH_URL}>Facebook</a></Button>
-                            <Button className='social-button'><a href={GOOGLE_AUTH_URL}>Google</a></Button>
+                            <Button className='social-button' onClick={this.loginWithGoogle}>Google</Button>
                             <Button className='social-button'><a href={GITHUB_AUTH_URL}>Github</a></Button>
                         </ul>
                     </div>

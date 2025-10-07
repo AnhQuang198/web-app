@@ -1,10 +1,10 @@
-export const API_BASE_URL = "http://127.0.0.1:8088"; //local
-export const OAUTH2_REDIRECT_URI = 'http://127.0.0.1:3000/oauth2/redirect'
+export const API_BASE_URL = "http://localhost:8888"; //local
+export const OAUTH2_REDIRECT_URI = 'http://localhost:3000/oauth2/redirect'
 
 //social login url
-export const GOOGLE_AUTH_URL = API_BASE_URL + '/oauth2/authorize/google?redirect_uri=' + OAUTH2_REDIRECT_URI;
-export const FACEBOOK_AUTH_URL = API_BASE_URL + '/oauth2/authorize/facebook?redirect_uri=' + OAUTH2_REDIRECT_URI;
-export const GITHUB_AUTH_URL = API_BASE_URL + '/oauth2/authorize/github?redirect_uri=' + OAUTH2_REDIRECT_URI;
+export const GOOGLE_AUTH_URL = API_BASE_URL + '/v1/auth/login/oauth2/google';
+export const FACEBOOK_AUTH_URL = API_BASE_URL + '/oauth2/authorization/facebook?redirect_uri=' + OAUTH2_REDIRECT_URI;
+export const GITHUB_AUTH_URL = API_BASE_URL + '/oauth2/authorization/github?redirect_uri=' + OAUTH2_REDIRECT_URI;
 
 const axios = require('axios');
 const TOKEN_KEY = 'token';
@@ -17,6 +17,21 @@ export async function nonAuthorizedPOST(url, data) {
     headers: {
       Accept: "*/*",
       "Content-Type": "application/json"
+    },
+    data: JSON.stringify(data)
+  }).catch(e => {
+    if (e.response) {
+      return e.response.data;
+    }
+  });
+}
+
+export async function nonAuthorizedGET(url, data) {
+  return await axios({
+    method: "GET",
+    url: API_BASE_URL + url,
+    headers: {
+      Accept: "*/*"
     },
     data: JSON.stringify(data)
   }).catch(e => {
